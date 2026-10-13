@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Stammfunktionen zuordnen</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">∫</div>
+    <div>
+      <p class="eyebrow">MATHEMATIK · ANALYSIS</p>
+      <h1>Stammfunktionen zuordnen</h1>
+      <p class="subtitle">Erkenne, welche Graphen zu den gegebenen Funktionsgleichungen gehören.</p>
+    </div>
+  </header>
+
+  <main class="page">
+    <section id="setup" class="panel setup-panel" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VORBEREITUNG</p>
+          <h2 id="setup-title">Deine Übung einstellen</h2>
+        </div>
+        <span class="step-pill">1 / 2</span>
+      </div>
+      <div class="settings-grid">
+        <fieldset>
+          <legend>Schwierigkeitsgrad</legend>
+          <label class="choice-card">
+            <input type="radio" name="level" value="easy" checked>
+            <span class="choice-copy"><strong>Level 1 · Einstieg</strong><small>Lineare Funktionen und ihre quadratischen Stammfunktionen</small></span>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="level" value="hard">
+            <span class="choice-copy"><strong>Level 2 · Kniffliger</strong><small>Lineare und quadratische Funktionen; auch kubische Stammfunktionen</small></span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Aufgabenoptionen</legend>
+          <label class="toggle-card">
+            <input id="include-false" type="checkbox" checked>
+            <span><strong>Falsche Graphen einbauen</strong><small>Einige Graphen passen zu keiner Gleichung. Du darfst sie leer lassen.</small></span>
+          </label>
+          <label class="number-field" for="function-count">
+            <span><strong>Anzahl der Gleichungen</strong><small>Pro Runde werden mehrere Stammfunktionen angeboten.</small></span>
+            <select id="function-count">
+              <option value="3">3 Gleichungen</option>
+              <option value="4" selected>4 Gleichungen</option>
+              <option value="5">5 Gleichungen</option>
+            </select>
+          </label>
+        </fieldset>
+      </div>
+      <button id="start-button" class="button button-primary">Übung starten <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section id="exercise" class="hidden" aria-labelledby="exercise-title">
+      <div class="exercise-top">
+        <div>
+          <p class="eyebrow">DEINE AUFGABE</p>
+          <h2 id="exercise-title">Ordne die Graphen zu</h2>
+          <p class="instruction">Wähle bei jedem Graphen die Gleichung aus, deren Stammfunktion er sein könnte. Mehrere Graphen dürfen zu derselben Gleichung gehören.</p>
+        </div>
+        <div class="progress-card">
+          <span class="progress-label">Bearbeitung</span>
+          <strong id="progress-text">0 von 0 Graphen</strong>
+          <div class="progress-track"><div id="progress-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="workspace">
+        <section class="panel equations-panel" aria-labelledby="equations-title">
+          <div class="panel-title-row">
+            <h3 id="equations-title">Funktionsgleichungen</h3>
+            <span class="small-tag">f(x)</span>
+          </div>
+          <p class="muted">Merke: Es gilt F′(x) = f(x).</p>
+          <div id="equations-list" class="equations-list"></div>
+        </section>
+
+        <section class="graphs-section" aria-labelledby="graphs-title">
+          <div class="panel-title-row graph-heading">
+            <div><h3 id="graphs-title">Mögliche Stammfunktionen</h3><p class="muted">Wähle eine oder mehrere Zuordnungen pro Graph.</p></div>
+            <span id="graph-count" class="small-tag">0 Graphen</span>
+          </div>
+          <div id="graphs-list" class="graphs-grid"></div>
+        </section>
+      </div>
+
+      <div class="action-row">
+        <p id="status-message" class="status-message" aria-live="polite">Ordne die Graphen zu und starte anschließend die Auswertung.</p>
+        <div class="action-buttons">
+          <button id="reset-button" class="button button-secondary">Auswahl zurücksetzen</button>
+          <button id="check-button" class="button button-primary">Auswertung starten</button>
+        </div>
+      </div>
+
+      <section id="results" class="panel results-panel hidden" aria-live="polite">
+        <div class="section-heading">
+          <div><p class="eyebrow">AUSWERTUNG</p><h2 id="result-title">Dein Ergebnis</h2></div>
+          <span id="score-pill" class="score-pill">0 %</span>
+        </div>
+        <p id="result-summary"></p>
+        <div id="feedback-list" class="feedback-list"></div>
+        <div class="result-actions">
+          <button id="new-round-button" class="button button-primary">Neue Runde</button>
+          <button id="change-settings-button" class="button button-secondary">Einstellungen ändern</button>
+        </div>
+      </section>
+    </section>
+
+    <footer class="page-footer">
+      <span>Hinweis: Stammfunktionen unterscheiden sich durch eine additive Konstante.</span>
+      <span>Ohne Anmeldung · direkt im Browser</span>
+    </footer>
+  </main>
+</body>
+</html>
